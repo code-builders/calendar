@@ -44,13 +44,10 @@ class DaysController < ActionController::Base
      else
        render :edit
      end
-
+   end
 private
 
   def day_params
     params.require(:day).permit(:description, :date, :link_to)
   end
-end
-
-
 end
