@@ -1,0 +1,16 @@
+<%= render "layouts/errors", :object => @day %>
+
+<%= bootstrap_form_for @day do |f| %>
+  <div class="form-group">
+    <%= f.date_field :date %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :link_to %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, :rows => 12, :cols => 75  %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit Lesson" %>
+  </div>
+<% end %>
