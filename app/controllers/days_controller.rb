@@ -1,5 +1,4 @@
 class DaysController < ActionController::Base
-
   def get_formatted_date
     self.Date.try { |d| d.strftime(:my_format)}
   end
@@ -24,7 +23,7 @@ class DaysController < ActionController::Base
     @day = Day.new(day_params)
     if @day.save
       flash[:notice] = "Posted Sucessfully!!"
-       redirect_to day_path
+       redirect_to days_path
      else
       render :new
     end
