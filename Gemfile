@@ -14,6 +14,9 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem "factory_girl_rails", "~> 4.0"
+gem 'poltergeist'
+
+gem 'will_paginate'
 
 
 group :development, :test do
@@ -21,9 +24,11 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'quiet_assets'
+  gem "capybara"
   gem 'pry'
   gem 'dotenv-rails'
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
