@@ -1,1 +1,19 @@
-<h1>test<h1>
+<h1>Today's Lessons</h1>
+<% if @day.present? %>
+<div class="row">
+  <div class="col-md-12">
+    <ul>
+  <% @days.each do |day| %>
+  <li><%= link_to day.date, day_path(day) %></li>
+  <% end %>
+</ul>
+
+  </div>
+</div>
+
+<% else %>
+<p>There are no lessons to show</p>
+<p>
+  <%= link_to "Add a new lesson", new_day_path %>
+</p>
+<% end %>

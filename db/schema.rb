@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20150907181949) do
   create_table "days", force: :cascade do |t|
     t.datetime "date"
     t.string   "description"
-    t.string   "string"
     t.string   "link_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

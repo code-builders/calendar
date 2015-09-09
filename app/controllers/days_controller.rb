@@ -1,10 +1,7 @@
 class DaysController < ActionController::Base
-  def get_formatted_date
-    self.Date.try { |d| d.strftime(:my_format)}
-  end
 
   def index
-    @day = Day.all
+    @days = Day.all
   end
 
   def new
