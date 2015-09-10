@@ -1,7 +1,9 @@
 class DaysController < ActionController::Base
+  
   def home
     @days = Day.all
   end
+
   def index
     @days = Day.all
   end

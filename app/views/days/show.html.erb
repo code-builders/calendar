@@ -1,1 +1,7 @@
-<% @day.date %>
+<ul>
+  <h1><%= @day.date %></h1>
+    <p><%= @day.link_to %></p>
+    <p><%= @day.description %></p>
+</ul>
+<h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
+<h1> <%= link_to "Return to Today's lesson", root_path %></h1>
