@@ -1,15 +1,5 @@
-<h1>Today's Lesson</h1>
-<div class="row">
-  <div class="col-md-12">
-    <% @days.each do |day| %>
-      <%  if day.date == Date.today %>
-        <%= day.description %>
-      <% else %>
-       <p>
-         <%= link_to "Add a new lesson", new_day_path %>
-       </p>
-     <% end %>
-
-  </div>
-</div>
+<ul>
+  <% @days.each do |day| %>
+  <li><%= link_to day.date, day_path(day) %></li>
 <% end %>
+</ul>
