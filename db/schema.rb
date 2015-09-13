@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907181949) do
+ActiveRecord::Schema.define(version: 20150913224112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.time    "start_time"
+    t.time    "end_time"
+    t.string  "text"
+    t.string  "link"
+    t.integer "day_id"
+  end
 
   create_table "days", force: :cascade do |t|
     t.datetime "date"
