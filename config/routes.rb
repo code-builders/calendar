@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'days#home'
-  resources :days
+  resources :days do
+    resources :activities
+  end
 end

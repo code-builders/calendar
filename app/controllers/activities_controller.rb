@@ -7,7 +7,7 @@ class ActivitiesController < ActionController::Base
 
   def create
     @day = Day.find(params[:day_id])
-    @activity = @day.activities.new(activity_params)
+    @activity = @day.activities.new(activities_params)
       if @activity.save
         respond_to do |format|
           format.html do
@@ -50,7 +50,7 @@ class ActivitiesController < ActionController::Base
     end
   end
 
-  def activity_params
+  def activities_params
     params.require(:activity).permit(:text, :link, :start_time, :end_time, :day_id)
   end
 end

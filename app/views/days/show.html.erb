@@ -3,5 +3,28 @@
     <p><%= @day.link_to %></p>
     <p><%= @day.description %></p>
 </ul>
+
+<div class="row">
+  <div class="col-md-6">
+    <% if @day.activities.any? %>
+    <h1>Schedule</h1>
+
+      <ul class="list-unstyled">
+       <% @day.activities.each do |activity| %>
+         <li class="well">
+           <%= activity.start_time %> - <%= activity.end_time %>: <%= activity.link %>
+         </li>
+         <% end %>
+       </ul>
+        </div>
+      </div>
+    </ul>
+    <% else %>
+<div class="row">
+  <div class="col-md-12 center">
+    <p>There are no activities yet!</p>
+    <%= link_to "Add new activity", new_day_activity_path(@day), id: "new-activity", remote: true %>
+
+    <% end %>
 <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
 <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
