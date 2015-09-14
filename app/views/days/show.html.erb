@@ -1,6 +1,6 @@
 <ul>
-  <h1><%= @day.date.strftime("%Y/%m/%d") %></h1>
-    <p><%= @day.link_to %></p>
+  <h1><%= @day.date.strftime("%m/%d/%Y") %></h1>
+  <h1>><%= @day.link_to %></h1>
     <p><%= @day.description %></p>
 </ul>
 
@@ -8,14 +8,11 @@
   <div class="col-md-6">
     <% if @day.activities.any? %>
     <h1>Schedule</h1>
+     <% @day.activities.each do |activity| %>
+       <b><%= activity.start_time.strftime("%I%P") %> - <%= activity.end_time.strftime("%I%P") %></b><%= link_to activity.link %>
+     <% end %>
+       <h1> <%= link_to "Add another activity", new_day_activity_path(@day), id: "new-activity", remote: true %></h1>
 
-      <ul class="list-unstyled">
-       <% @day.activities.each do |activity| %>
-         <li class="well">
-           <%= activity.start_time.strftime("%I%P") %> - <%= activity.end_time.strftime("%I%P") %>: <%= activity.link %>
-         </li>
-         <% end %>
-       </ul>
         </div>
       </div>
     </ul>
