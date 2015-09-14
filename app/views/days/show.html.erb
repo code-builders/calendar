@@ -1,5 +1,5 @@
 <ul>
-  <h1><%= @day.date %></h1>
+  <h1><%= @day.date.strftime("%Y/%m/%d") %></h1>
     <p><%= @day.link_to %></p>
     <p><%= @day.description %></p>
 </ul>
@@ -12,7 +12,7 @@
       <ul class="list-unstyled">
        <% @day.activities.each do |activity| %>
          <li class="well">
-           <%= activity.start_time %> - <%= activity.end_time %>: <%= activity.link %>
+           <%= activity.start_time.strftime("%I%P") %> - <%= activity.end_time.strftime("%I%P") %>: <%= activity.link %>
          </li>
          <% end %>
        </ul>

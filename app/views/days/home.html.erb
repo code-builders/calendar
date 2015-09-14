@@ -5,7 +5,7 @@
       <% @days.each do |day| %>
         <%  if day.date == Date.today %>
           <ul>
-              <h1><%= day.date %></h1>
+              <h1><%= day.date.strftime("%Y/%m/%d") %></h1>
             <p><%= day.link_to %></p>
 
             <p><%= day.description %></p>

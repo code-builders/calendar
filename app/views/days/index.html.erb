@@ -1,6 +1,6 @@
 <ul>
   <% @days.each do |day| %>
-  <li><%= link_to day.date, day_path(day) %></li>
+  <li><%= link_to day.date.strftime("%Y/%m/%d"), day_path(day) %></li>
 <% end %>
 </ul>
 <h1> <%= link_to "Return to Today's lesson", root_path %>
