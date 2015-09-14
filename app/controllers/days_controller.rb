@@ -1,5 +1,5 @@
 class DaysController < ActionController::Base
-  
+
   def home
     @days = Day.all
   end

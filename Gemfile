@@ -15,7 +15,9 @@ gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem "factory_girl_rails", "~> 4.0"
 gem 'poltergeist'
-
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 gem 'will_paginate'
 
 
