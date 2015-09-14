@@ -15,10 +15,10 @@ gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem "factory_girl_rails", "~> 4.0"
 gem 'poltergeist'
-gem 'redcarpet'
+gem 'redcarpet', '~> 3.0.0'
 gem 'albino'
 gem 'nokogiri'
-gem 'will_paginate'
+
 
 
 group :development, :test do
@@ -34,7 +34,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
   gem 'shoulda-matchers'
 end
 
