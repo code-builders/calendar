@@ -51,6 +51,6 @@ class ActivitiesController < ActionController::Base
   end
 
   def activities_params
-    params.require(:activity).permit(:text, :link, :start_time, :end_time, :day_id)
+    params.require(:activity).permit(:text, :url, :start_time, :end_time, :day_id)
   end
 end

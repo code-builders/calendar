@@ -1,5 +1,5 @@
 class Day < ActiveRecord::Base
-  validates :description, :date, :link_to, :presence => true
+  validates :description, :date, :url, :presence => true
   has_many :activities
 
 

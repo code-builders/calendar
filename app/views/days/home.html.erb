@@ -6,7 +6,7 @@
         <% if day.date == Date.today %>
           <ul>
             <h1><%= day.date.strftime("%m/%d/%Y") %></h1>
-            <h1><%= day.link_to %></h1>
+            <h1><%= day.url %></h1>
 
             <p><%= markdown(day.description) %></p>
           </ul>
