@@ -18,6 +18,7 @@ gem 'poltergeist'
 gem 'redcarpet', '~> 3.0.0'
 gem 'albino'
 gem 'nokogiri'
+gem 'textacular', "~> 3.0", require: 'textacular/rails'
 
 
 
