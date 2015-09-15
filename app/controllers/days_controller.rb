@@ -6,6 +6,7 @@ class DaysController < ActionController::Base
 
   def index
     @days = Day.all
+    @activities = Activity.all
   end
 
   def new

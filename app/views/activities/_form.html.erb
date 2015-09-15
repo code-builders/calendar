@@ -1,6 +1,6 @@
 <%= render "layouts/errors", :object => @activity %>
 
-<%= bootstrap_form_for [@day, @activity], remote: true do |f| %>
+<%= bootstrap_form_for [@day_id, @activity], remote: true do |f| %>
   <div class="form-group">
     <%= f.date_field :start_time %>
   </div>
@@ -8,10 +8,13 @@
     <%= f.date_field :end_time %>
   </div>
   <div class="form-group">
-    <%= f.url_field :url %>
+    <%= f.text_field :url %>
   </div>
   <div class="form-group">
     <%= f.text_area :text, :rows => 12, :cols => 75  %>
+  </div>
+  <div class="form-group">
+    <%= f.hidden_field :day_id, value: @day.id  %>
   </div>
   <div class="form-group">
     <%= f.submit "Submit Activity" %>

@@ -11,7 +11,7 @@ class ActivitiesController < ActionController::Base
       if @activity.save
         respond_to do |format|
           format.html do
-            flash[:notice] = "Activity Dayed"
+            flash[:notice] = "Activity Posted"
             redirect_to day_path(@day)
           end
           format.js
