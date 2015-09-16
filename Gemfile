@@ -18,9 +18,9 @@ gem 'poltergeist'
 gem 'redcarpet', '~> 3.0.0'
 gem 'albino'
 gem 'nokogiri'
-gem 'textacular', "~> 3.0", require: 'textacular/rails'
-
-
+gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development, :test do
   gem 'byebug'

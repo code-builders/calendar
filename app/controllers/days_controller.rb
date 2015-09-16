@@ -5,10 +5,14 @@ class DaysController < ActionController::Base
   end
 
   def index
-    @days = Day.all
-    @activities = Activity.all
+    if params[:query].present?
+      @days = Day.search(params[:query], day_params: params[:day_params])
+    else
+      @days = Day.all
+      @activities = Activity.all
+    end
   end
-  
+
   def new
     @day = Day.new
   end

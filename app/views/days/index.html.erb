@@ -1,23 +1,15 @@
 <h1>Code Builders Lessons!</h1>
-  <div class="row">
-    <div class="large-6 columns">
-      <%= form_tag days_path, method: :get, class: "navbar-form navbar-left search" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search" %>
-        <%= submit_tag 'Search', name: nil, class: "form-control", id: "search-btn" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-md-12">
-    <div class="row">
-      <% if @search_results != [] && @search_results != nil %>
-        <h2>Search Results:</h2>
-        <ul>
-          <% @search_results.each do |result| %>
-            <li><a href="/results/<%= result.id %>"><%= result.description %></a></li>
-        <% end %>
-        </ul>
-    </div>
+  <%=  form_tag days_path, class: "form-inline", method: :get do %>
+  <%= text_field_tag :query, params[:query], class: "form-control" %>
+
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% if params[:query].present? %>
+
+      <%= link_to "clear", days_path %>
     <% end %>
+  <% end %>
+
+  <div class="col-md-12">
     <div class="row">
     <ul>
       <% @days.each do |day| %>
