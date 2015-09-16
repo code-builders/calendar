@@ -8,7 +8,7 @@ class DaysController < ActionController::Base
     @days = Day.all
     @activities = Activity.all
   end
-
+  
   def new
     @day = Day.new
   end
