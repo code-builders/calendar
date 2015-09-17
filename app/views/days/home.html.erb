@@ -3,8 +3,8 @@
      <div class="search">
      <%=  form_tag days_path, class: "form-inline", method: :get do %>
      <%= text_field_tag :query, params[:query], class: "form-control" %>
-
      <%= submit_tag "Search", class: "btn btn-primary" %>
+     
        <% if params[:query].present? %>
 
          <%= link_to "clear", root_path %>
@@ -19,7 +19,6 @@
          <% if day.date == Date.today %>
              <h1><%= day.date.strftime("%m/%d/%Y") %></h1>
              <h1><%= day.url %></h1>
-
              <p><%= markdown(day.description) %></p>
          <% end %>
         <% end %>
@@ -27,7 +26,7 @@
     </div>
    <div class="col-md-12">
      <p>
-       <%= link_to "Add a new lesson", new_day_path, {:style=>'color:#000000;', :class => "css_class"}  %>
+       <%= link_to "Add a new lesson", new_day_path  %>
      </p>
    </div>
    <div class="col-md-12">

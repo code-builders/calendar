@@ -12,19 +12,14 @@
   <% end %>
   </div>
 </div>
-
-<br>
   <div class="col-md-12">
     <div class="row">
       <div class="list-days">
 
         <% @days.each do |day| %>
-        <p><%= link_to day.date.strftime("%m/%d/%Y"), day_path(day), {:style=>'color:#000000;', :class => "css_class"} %></p>
+        <p><%= link_to day.date.strftime("%m/%d/%Y"), day_path(day), {:style=>'color:#000000;', :class => "css_class" } %></p>
       <% end %>
-      <h1> <%= link_to "Return to Today's lesson", root_path, {:style=>'color:#000000;', :class => "css_class"}  %>
+      <h1> <%= link_to "Return to Today's lesson", root_path  %>
     </div>
   </div>
-</div>
-<div class="test">
-  <h1>test</h1>
 </div>
