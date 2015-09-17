@@ -1,33 +1,31 @@
 <div class="col-md-12">
   <div class="row">
+    <div class="day-row">
       <h1><%= @day.date.strftime("%m/%d/%Y") %></h1>
-      <h1>><%= @day.url %></h1>
+      <h2>><%= @day.url %></h2>
       <p><%= markdown(@day.description) %></p>
-  </div>
-</div>
-  <h1>Schedule</h1>
-
+    </div>
   <div class="activities-row">
+    <h1>Schedule</h1>
+    <% if @day.activities.any? %>
+    <% @day.activities.each do |activity| %>
+     <p>
 
-
-      <% if @day.activities.any? %>
-         <% @day.activities.each do |activity| %>
-         <p>
-
-             <%= activity.start_time.strftime("%I%P") %> - <%= activity.end_time.strftime("%I%P") %>
-             <%= link_to nil, "http://#{activity.url}" %><br><br>
-             <% end %>
+         <%= activity.start_time.strftime("%I%P") %> - <%= activity.end_time.strftime("%I%P") %>
+         <%= link_to nil, "http://#{activity.url}" %><br><br>
+   <% end %>
      </p>
-
    </div>
-
-
-
-    <% else %>
-  <div class="row">
-    <p>There are no activities yet!</p>
-      <%= link_to "Add new activity", new_day_activity_path(@day), id: "new-activity", remote: true %>
-    <% end %>
-  <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
-  <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
+ </div>
 </div>
+
+  <% else %>
+  <div class="col-md-12">
+    <div class="row">
+      <p>There are no activities yet!</p>
+        <%= link_to "Add new activity", new_day_activity_path(@day), id: "new-activity", remote: true %>
+      <% end %>
+        <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
+        <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
+    </div>
+  </div>

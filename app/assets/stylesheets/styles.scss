@@ -5,17 +5,14 @@
 .test h1 {
 text-align: right;
 }
-
-body {
-  activities-row {
-    background-color: green;
-  }
-}
+.a { font-color: #000000; }
 .search {
   padding-top: 4em;
 }
 .activities-row  p:nth-child(odd) {
   background-color: #abdcfb;
+  font-size: 24px;
+
 }
 ul
 {
@@ -23,6 +20,29 @@ list-style-type: none;
 }
 
 .navbar-header {
-  background-color: black;
-  padding: inherit;
+  background-color: #d3d3d3;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.day-row h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+.day-row h2 {
+  font-size: 36px;
+  font-weight: bold;
+
+}
+.activities-row h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+}
+.container-fluid .navbar-header {
+  margin-left: -15px;
+  margin-right: -5px;
 }

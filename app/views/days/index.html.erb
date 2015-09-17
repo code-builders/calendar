@@ -1,4 +1,6 @@
-<h1>Code Builders Lessons!</h1>
+<div class="col-md-12">
+  <div class="row">
+    <h1>Lessons</h1>
   <%=  form_tag days_path, class: "form-inline", method: :get do %>
   <%= text_field_tag :query, params[:query], class: "form-control" %>
 
@@ -8,15 +10,19 @@
       <%= link_to "clear", days_path %>
     <% end %>
   <% end %>
+  </div>
+</div>
 
+<br>
   <div class="col-md-12">
     <div class="row">
-    <ul>
-      <% @days.each do |day| %>
-      <li><%= link_to day.date.strftime("%m/%d/%Y"), day_path(day) %></li>
-    <% end %>
-    </ul>
-    <h1> <%= link_to "Return to Today's lesson", root_path %>
+      <div class="list-days">
+
+        <% @days.each do |day| %>
+        <p><%= link_to day.date.strftime("%m/%d/%Y"), day_path(day), {:style=>'color:#000000;', :class => "css_class"} %></p>
+      <% end %>
+      <h1> <%= link_to "Return to Today's lesson", root_path, {:style=>'color:#000000;', :class => "css_class"}  %>
+    </div>
   </div>
 </div>
 <div class="test">
