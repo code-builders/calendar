@@ -1,6 +1,6 @@
 <%= render "layouts/errors", :object => @activity %>
 
-<%= bootstrap_form_for [@day_id, @activity], remote: true do |f| %>
+<%= bootstrap_form_for [@day, @activity], remote: true do |f| %>
   <div class="form-group">
     <%= f.date_field :start_time %>
   </div>
