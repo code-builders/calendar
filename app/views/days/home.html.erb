@@ -1,65 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Code Builders Curriculum</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-
-      </div>
-    </div>
-  </nav>
-  <div class="container">
+<div class="col-md-12">
    <div class="row">
-       <div class="row">
-         <%=  form_tag days_path, class: "form-inline", method: :get do %>
-         <%= text_field_tag :query, params[:query], class: "form-control" %>
+     <div class="search">
+     <%=  form_tag days_path, class: "form-inline", method: :get do %>
+     <%= text_field_tag :query, params[:query], class: "form-control" %>
 
-         <%= submit_tag "Search", class: "btn btn-primary" %>
-           <% if params[:query].present? %>
+     <%= submit_tag "Search", class: "btn btn-primary" %>
+       <% if params[:query].present? %>
 
-             <%= link_to "clear", root_path %>
-           <% end %>
+         <%= link_to "clear", root_path %>
+       <% end %>
+     <% end %>
+   </div>
+   <h1>Today's Lesson</h1>
+   <div class="row">
+     <div class="col-md-12">
+       <div class="front-page">
+       <% @days.each do |day| %>
+         <% if day.date == Date.today %>
+             <h1><%= day.date.strftime("%m/%d/%Y") %></h1>
+             <h1><%= day.url %></h1>
+
+             <p><%= markdown(day.description) %></p>
          <% end %>
-       <h1>Today's Lesson</h1>
-       <div class="row">
-         <div class="col-md-12">
-           <div class="front-page">
-           <% @days.each do |day| %>
-             <% if day.date == Date.today %>
-                 <h1><%= day.date.strftime("%m/%d/%Y") %></h1>
-                 <h1><%= day.url %></h1>
-
-                 <p><%= markdown(day.description) %></p>
-             <% end %>
-            <% end %>
-          </div>
-         </div>
-         <div class="col-md-12">
-           <p>
-             <%= link_to "Add a new lesson", new_day_path %>
-           </p>
-         </div>
-         <div class="col-md-12">
-           <h1> <%= link_to "View other lessons", days_path(@days) %>
-         </div>
-     <%= yield %>
+        <% end %>
+      </div>
      </div>
+   <div class="col-md-12">
+     <p>
+       <%= link_to "Add a new lesson", new_day_path %>
+     </p>
+   </div>
+   <div class="col-md-12">
+     <h1> <%= link_to "View other lessons", days_path(@days) %>
    </div>
 
-   <div class="row">
-     <div class="col-md-12 text-center">
-       <%= flash[:alert] %>
-       <%= flash[:notice] %>
-     </div>
-   </div>
- </div>
-</body>
-</html>
-<
+</div>

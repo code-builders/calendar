@@ -9,20 +9,16 @@
 
   <div class="activities-row">
 
-    <ul>
 
       <% if @day.activities.any? %>
-
          <% @day.activities.each do |activity| %>
-         <li>
+         <p>
 
              <%= activity.start_time.strftime("%I%P") %> - <%= activity.end_time.strftime("%I%P") %>
              <%= link_to nil, "http://#{activity.url}" %><br><br>
              <% end %>
+     </p>
 
-           </li>
-
-     </ul>
    </div>
 
 

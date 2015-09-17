@@ -1,16 +1,28 @@
 
-
+.container {
+  padding: inherit;
+}
 .test h1 {
 text-align: right;
 }
 
 body {
-  background-color: green;
   activities-row {
     background-color: green;
   }
 }
-.activities-row ul li {
-  background-color: blue;
-  font-size: 36px;
+.search {
+  padding-top: 4em;
+}
+.activities-row  p:nth-child(odd) {
+  background-color: #abdcfb;
+}
+ul
+{
+list-style-type: none;
+}
+
+.navbar-header {
+  background-color: black;
+  padding: inherit;
 }
