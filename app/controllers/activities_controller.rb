@@ -4,7 +4,7 @@ class ActivitiesController < ActionController::Base
     @day = Day.find(params[:day_id])
     @activity = Activity.new
   end
-  
+
   def create
     @day = Day.find(params[:day_id])
     @activity = @day.activities.new(activities_params)
@@ -37,7 +37,7 @@ class ActivitiesController < ActionController::Base
     @activity = Activity.find(params[:id])
     @activity.destroy
     flash[:notice] = "Your activity has been removed."
-    redirect_to day_path(@day)
+    redirect_to day_path
   end
 
   def update
