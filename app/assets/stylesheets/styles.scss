@@ -4,9 +4,7 @@
 }
 
 .a { font-color: #000000; }
-.search {
-  padding-top: 4em;
-}
+
 .activities-row  p:nth-child(even) {
   background-color: #abdcfb;
 
@@ -14,13 +12,19 @@
 .list-days {
   padding-top: 2em;
 }
-
+.search {
+  float: right;
+  margin-top: -65px;
+}
 .navbar-header {
   background-color: #d3d3d3;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
 }
+.navbar-header h1 {
+  text-align: left;
+}
+
 .day-row h1 {
   font-size: 48px;
   font-weight: bold;

@@ -1,15 +1,18 @@
 <div class="col-md-12">
   <div class="row">
     <h1>Lessons</h1>
-  <%=  form_tag days_path, class: "form-inline", method: :get do %>
-  <%= text_field_tag :query, params[:query], class: "form-control" %>
+    <br>
+      <div class="search">
+        <%=  form_tag days_path, class: "form-inline", method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "form-control" %>
 
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% if params[:query].present? %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% if params[:query].present? %>
 
-      <%= link_to "clear", days_path %>
-    <% end %>
-  <% end %>
+        <%= link_to "clear", days_path %>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
   <div class="col-md-12">

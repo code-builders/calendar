@@ -1,43 +1,41 @@
+
 <div class="col-md-12">
-   <div class="row">
-     <div class="search">
-     <%=  form_tag days_path, class: "form-inline", method: :get do %>
-     <%= text_field_tag :query, params[:query], class: "form-control" %>
-     <%= submit_tag "Search", class: "btn btn-primary" %>
-       <% if params[:query].present? %>
+ <div class="row">
+   <h1>Today's Lesson</h1>
+   <br>
+        <div class="search">
+         <%=  form_tag days_path, class: "form-inline", method: :get do %>
+         <%= text_field_tag :query, params[:query], class: "form-control" %>
+         <%= submit_tag "Search", class: "btn btn-primary" %>
+         <% if params[:query].present? %>
          <%= link_to "clear", root_path %>
+         <% end %>
+       <% end %>
+     </div>
+
+
+   <div class="front-page">
+     <% @days.each do |day| %>
+     <% if day.date == Date.today %>
+       <h1><%= day.date.strftime("%m/%d/%Y") %></h1>
+       <h1><%= day.url %></h1>
+       <p><%= markdown(day.description) %></p>
+     </div>
+     <div class="activities-row">
+       <h1>Schedule</h1>
+       <% day.activities.each do |activity| %>
+         <p>
+           <%= activity.start_time.strftime("%l%P") %> - <%= activity.end_time.strftime("%l%P") %>
+
+           <%= link_to nil, "http://#{activity.url}" %>
+         </p>
        <% end %>
      <% end %>
-   </div>
- </div>
-   <h1>Today's Lesson</h1>
-     <div class="col-md-12">
-       <div class="row">
-       <div class="front-page">
-       <% @days.each do |day| %>
-         <% if day.date == Date.today %>
-           <h1><%= day.date.strftime("%m/%d/%Y") %></h1>
-           <h1><%= day.url %></h1>
-           <p><%= markdown(day.description) %></p>
-         </div>
-       </div>
-         <div class="row">
-           <div class="activities-row">
-             <h1>Schedule</h1>
-             <% day.activities.each do |activity| %>
+    <% end %>
+  </div>
+</div>
 
-               <p>
-
-                   <%= activity.start_time.strftime("%l%P") %> - <%= activity.end_time.strftime("%l%P") %>
-
-                   <%= link_to nil, "http://#{activity.url}" %>
-               </p>
-             <% end %>
-           <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+</div>
   <div class="col-md-12">
     <div class="row">
       <h1> <%= link_to "View other lessons", days_path(@days) %>
