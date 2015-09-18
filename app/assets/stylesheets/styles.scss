@@ -2,16 +2,13 @@
 .container {
   padding: inherit;
 }
-.test h1 {
-text-align: right;
-}
+
 .a { font-color: #000000; }
 .search {
   padding-top: 4em;
 }
 .activities-row  p:nth-child(odd) {
   background-color: #abdcfb;
-  font-size: 24px;
 
 }
 .list-days {
@@ -37,7 +34,12 @@ text-align: right;
   font-size: 48px;
   font-weight: bold;
 }
-
+.activities-row p a {
+  margin-left: 200px;
+}
+.activities-row {
+  font-size: 36px;
+}
 p {
   font-size: 16px;
 }
