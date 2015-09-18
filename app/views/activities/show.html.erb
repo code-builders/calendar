@@ -1,1 +1,7 @@
-<h1> <%= link_to "Edit", edit_day_activity_path(@day, activity) %></h1>
+
+
+ <p>
+     <%= @day.activity.start_time.strftime("%I%P") %> - <%= @day.activity.end_time.strftime("%I%P") %>
+
+     <%= link_to nil, "http://#{@day.activity.url}" %>
+ </p>

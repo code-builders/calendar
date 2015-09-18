@@ -4,7 +4,7 @@ class ActivitiesController < ActionController::Base
     @day = Day.find(params[:day_id])
     @activity = Activity.new
   end
-
+  
   def create
     @day = Day.find(params[:day_id])
     @activity = @day.activities.new(activities_params)

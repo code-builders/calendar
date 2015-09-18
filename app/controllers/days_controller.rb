@@ -21,6 +21,7 @@ class DaysController < ActionController::Base
 
   def show
     @day = Day.find(params[:id])
+    @activities = @day.activities.all
   end
 
   def edit
@@ -55,6 +56,6 @@ class DaysController < ActionController::Base
 private
 
   def day_params
-    params.require(:day).permit(:description, :date, :url)
+    params.require(:day).permit(:description, :date, :url, :activity_id)
   end
 end
