@@ -21,6 +21,7 @@ gem 'nokogiri'
 gem 'searchkick'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'heroku'
 
 group :development, :test do
   gem 'byebug'
