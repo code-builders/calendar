@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root :to => 'days#home'
 
-  resources :days do
+  resources :days, path: 'days#home' do
     resources :activities
 
   end
+  get "/home" => "days#home"
+
 end
