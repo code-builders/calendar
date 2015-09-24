@@ -44196,3 +44196,17 @@ Processing by DaysController#show as HTML
   [1m[36mActivity Load (0.4ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."day_id" = $1  ORDER BY start_time[0m  [["day_id", 1]]
   Rendered days/show.html.erb within layouts/application (5.4ms)
 Completed 200 OK in 100ms (Views: 96.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/days" for ::1 at 2015-09-23 21:46:37 -0700
+Processing by DaysController#index as HTML
+  [1m[35mDay Load (0.4ms)[0m  SELECT "days".* FROM "days"  ORDER BY "days"."date" ASC
+  Rendered days/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 154ms (Views: 152.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-09-23 21:46:40 -0700
+Processing by DaysController#home as HTML
+  [1m[36mDay Load (0.3ms)[0m  [1mSELECT "days".* FROM "days"  ORDER BY "days"."date" ASC[0m
+  Rendered days/home.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 226ms (Views: 223.7ms | ActiveRecord: 0.3ms)
