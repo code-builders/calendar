@@ -43916,3 +43916,283 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+
+
+Started GET "/" for ::1 at 2015-09-23 21:33:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DaysController#home as HTML
+Scoped order and limit are ignored, it's forced to be batch order and batch size
+  [1m[35mDay Load (2.2ms)[0m  SELECT  "days".* FROM "days"  ORDER BY "days"."id" ASC LIMIT 1000
+  [1m[36mDay Load (1.8ms)[0m  [1mSELECT "days".* FROM "days"  ORDER BY "days"."date" ASC[0m
+  Rendered days/home.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 11660ms (Views: 11590.0ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/days.%23%3CDay::ActiveRecord_Relation:0x007f8bef0084d0%3E" for ::1 at 2015-09-23 21:34:46 -0700
+Processing by DaysController#index as 
+  [1m[35mDay Load (0.5ms)[0m  SELECT "days".* FROM "days"  ORDER BY "days"."date" ASC
+  Rendered days/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 142ms (Views: 138.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-09-23 21:35:52 -0700
+Processing by DaysController#home as HTML
+  [1m[36mDay Load (0.5ms)[0m  [1mSELECT "days".* FROM "days"  ORDER BY "days"."date" ASC[0m
+  Rendered days/home.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 146ms (Views: 143.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-09-23 21:40:26 -0700
+Processing by DaysController#home as HTML
+  [1m[35mDay Load (0.5ms)[0m  SELECT "days".* FROM "days"  ORDER BY "days"."date" ASC
+  Rendered days/home.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 130ms (Views: 128.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-09-23 21:40:26 -0700
+Processing by DaysController#home as HTML
+  [1m[36mDay Load (0.3ms)[0m  [1mSELECT "days".* FROM "days"  ORDER BY "days"."date" ASC[0m
+  Rendered days/home.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 120ms (Views: 118.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/days/new" for ::1 at 2015-09-23 21:40:28 -0700
+Processing by DaysController#new as HTML
+  Rendered layouts/_errors.html.erb (41.4ms)
+  Rendered days/_form.html.erb (75.9ms)
+  Rendered days/new.html.erb within layouts/application (83.6ms)
+Completed 200 OK in 297ms (Views: 291.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/days" for ::1 at 2015-09-23 21:40:50 -0700
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zkYcKNC6xeDPPJ/Myt/6OSbygauqNfDRe4W73IvJq8yZbMSzBR070IkDZw5h1i0pSJ7au2DOigDybvIgoDEM7Q==", "day"=>{"date"=>"2015/09/08", "url"=>"test.com", "description"=>"test"}, "commit"=>"Submit Lesson"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "days" ("description", "date", "url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "test"], ["date", "2015-09-08 00:00:00.000000"], ["url", "test.com"], ["created_at", "2015-09-24 04:40:50.215227"], ["updated_at", "2015-09-24 04:40:50.215227"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[33mDay Store (206.7ms)[0m  {"id":1}
+Redirected to http://localhost:3000/days
+Completed 302 Found in 250ms (Searchkick: 206.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/days" for ::1 at 2015-09-23 21:40:50 -0700
+Processing by DaysController#index as HTML
+  [1m[36mDay Load (3.9ms)[0m  [1mSELECT "days".* FROM "days"  ORDER BY "days"."date" ASC[0m
+  Rendered days/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 139ms (Views: 133.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/days/1" for ::1 at 2015-09-23 21:40:51 -0700
+Processing by DaysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDay Load (0.4ms)[0m  SELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1  [["id", 1]]
+  [1m[36mActivity Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "activities" WHERE "activities"."day_id" = $1 LIMIT 1[0m  [["day_id", 1]]
+  Rendered days/show.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 137ms (Views: 104.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/days/1/activities/new" for ::1 at 2015-09-23 21:41:03 -0700
+Processing by ActivitiesController#new as HTML
+  Parameters: {"day_id"=>"1"}
+  [1m[35mDay Load (0.4ms)[0m  SELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered activities/_form.html.erb (20.8ms)
+  Rendered activities/new.html.erb (22.6ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"activities", :day_id=>"1", :id=>nil} missing required keys: [:id]):
+    20:     <%= f.submit "Submit Activity" %>
+    21:   </div>
+    22: <% end %>
+    23: <%= link_to 'Destroy',  day_activity_path(@day, @activity),
+    24:     data: { confirm: 'Are you sure?' }, method: :delete %>
+  app/views/activities/_form.html.erb:23:in `_app_views_activities__form_html_erb___2641461430469443041_70119523253540'
+  app/views/activities/new.html.erb:2:in `_app_views_activities_new_html_erb__720544377674949801_70119523217760'
+
+
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.9ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (25.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (56.5ms)
+
+
+Started GET "/days/1/activities/new" for ::1 at 2015-09-23 21:41:21 -0700
+Processing by ActivitiesController#new as HTML
+  Parameters: {"day_id"=>"1"}
+  [1m[36mDay Load (0.4ms)[0m  [1mSELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_errors.html.erb (0.2ms)
+  Rendered activities/_form.html.erb (14.5ms)
+  Rendered activities/new.html.erb (15.1ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-09-23 21:42:12 -0700
+Processing by DaysController#home as HTML
+  [1m[35mDay Load (0.3ms)[0m  SELECT "days".* FROM "days"  ORDER BY "days"."date" ASC
+  Rendered days/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 103ms (Views: 101.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/days.%23%3CDay::ActiveRecord_Relation:0x007f8bf1c55290%3E" for ::1 at 2015-09-23 21:42:15 -0700
+Processing by DaysController#index as 
+  [1m[36mDay Load (0.5ms)[0m  [1mSELECT "days".* FROM "days"  ORDER BY "days"."date" ASC[0m
+  Rendered days/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 206ms (Views: 204.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/days/1" for ::1 at 2015-09-23 21:42:16 -0700
+Processing by DaysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1  [["id", 1]]
+  [1m[36mActivity Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "activities" WHERE "activities"."day_id" = $1 LIMIT 1[0m  [["day_id", 1]]
+  Rendered days/show.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"activities", :id=>"1"} missing required keys: [:day_id]):
+    25: </div>
+    26:   <div class="col-md-12">
+    27:      <div class="row">
+    28:        <h1> <%= link_to "Add activity", new_day_activity_path  %> </h1>
+    29:        <h1> <%= link_to "Edit lesson", edit_day_path  %> </h1>
+    30:        <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
+    31:        <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
+  app/views/days/show.html.erb:28:in `_app_views_days_show_html_erb___2373637842236254576_70119465177900'
+
+
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.6ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (19.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (44.2ms)
+
+
+Started GET "/days/1" for ::1 at 2015-09-23 21:42:16 -0700
+Processing by DaysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1  [["id", 1]]
+  [1m[36mActivity Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "activities" WHERE "activities"."day_id" = $1 LIMIT 1[0m  [["day_id", 1]]
+  Rendered days/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"activities", :id=>"1"} missing required keys: [:day_id]):
+    25: </div>
+    26:   <div class="col-md-12">
+    27:      <div class="row">
+    28:        <h1> <%= link_to "Add activity", new_day_activity_path  %> </h1>
+    29:        <h1> <%= link_to "Edit lesson", edit_day_path  %> </h1>
+    30:        <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
+    31:        <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
+  app/views/days/show.html.erb:28:in `_app_views_days_show_html_erb___2373637842236254576_70119516103600'
+
+
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.1ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (36.7ms)
+
+
+Started GET "/days/1" for ::1 at 2015-09-23 21:42:28 -0700
+Processing by DaysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDay Load (0.4ms)[0m  SELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1  [["id", 1]]
+  [1m[36mActivity Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "activities" WHERE "activities"."day_id" = $1 LIMIT 1[0m  [["day_id", 1]]
+  [1m[35mActivity Load (0.4ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."day_id" = $1  ORDER BY start_time  [["day_id", 1]]
+  Rendered days/show.html.erb within layouts/application (19.0ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (undefined local variable or method `day' for #<#<Class:0x007f8bef053de0>:0x007f8befe3ddc0>):
+    25: </div>
+    26:   <div class="col-md-12">
+    27:      <div class="row">
+    28:        <h1> <%= link_to "Add activity", new_day_activity_path(day)  %> </h1>
+    29:        <h1> <%= link_to "Edit lesson", edit_day_path  %> </h1>
+    30:        <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
+    31:        <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
+  app/views/days/show.html.erb:28:in `_app_views_days_show_html_erb___2373637842236254576_70119500953400'
+
+
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tuckermayo/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (32.8ms)
+
+
+Started GET "/days/1" for ::1 at 2015-09-23 21:42:36 -0700
+Processing by DaysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDay Load (0.3ms)[0m  [1mSELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Exists (0.3ms)[0m  SELECT  1 AS one FROM "activities" WHERE "activities"."day_id" = $1 LIMIT 1  [["day_id", 1]]
+  Rendered days/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 210ms (Views: 206.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/days/1/activities/new" for ::1 at 2015-09-23 21:42:38 -0700
+Processing by ActivitiesController#new as HTML
+  Parameters: {"day_id"=>"1"}
+  [1m[36mDay Load (0.3ms)[0m  [1mSELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_errors.html.erb (0.1ms)
+  Rendered activities/_form.html.erb (15.7ms)
+  Rendered activities/new.html.erb (16.9ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/days/1/activities/new" for ::1 at 2015-09-23 21:42:38 -0700
+Processing by ActivitiesController#new as HTML
+  Parameters: {"day_id"=>"1"}
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_errors.html.erb (0.0ms)
+  Rendered activities/_form.html.erb (3.6ms)
+  Rendered activities/new.html.erb (4.2ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/days/1/activities" for ::1 at 2015-09-23 21:42:51 -0700
+Processing by ActivitiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "activity"=>{"start_time"=>"1pm", "end_time"=>"2pm", "url"=>"www.hola.com", "text"=>"test", "day_id"=>"1"}, "commit"=>"Submit Activity", "day_id"=>"1"}
+  [1m[36mDay Load (0.2ms)[0m  [1mSELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "activities" ("text", "url", "start_time", "end_time", "day_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "test"], ["url", "www.hola.com"], ["start_time", "2015-09-24 13:00:00.000000"], ["end_time", "2015-09-24 14:00:00.000000"], ["day_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/days/1
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/days/1" for ::1 at 2015-09-23 21:42:51 -0700
+Processing by DaysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDay Load (0.2ms)[0m  [1mSELECT  "days".* FROM "days" WHERE "days"."id" = $1  ORDER BY "days"."date" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Exists (0.6ms)[0m  SELECT  1 AS one FROM "activities" WHERE "activities"."day_id" = $1 LIMIT 1  [["day_id", 1]]
+  [1m[36mActivity Load (0.4ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."day_id" = $1  ORDER BY start_time[0m  [["day_id", 1]]
+  Rendered days/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 100ms (Views: 96.8ms | ActiveRecord: 1.2ms)

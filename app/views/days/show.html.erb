@@ -25,6 +25,9 @@
 </div>
   <div class="col-md-12">
      <div class="row">
+       <h1> <%= link_to "Edit lesson", edit_day_path  %> </h1>
+       <h1> <%= link_to "Add activity", new_day_activity_path(@day)  %> </h1>
+       <h1> <%= link_to "Edit activity", edit_day_activity_path(@day)  %> </h1>
        <h1> <%= link_to "Back to all lessons", days_path(@days) %></h1>
        <h1> <%= link_to "Return to Today's lesson", root_path %></h1>
      </div>
