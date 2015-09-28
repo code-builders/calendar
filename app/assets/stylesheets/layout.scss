@@ -1,0 +1,81 @@
+$blue: rgb(72, 170, 157);
+$lightblue: rgb(214, 239, 241);
+
+body {
+  font-family: "Futura";
+  font-size: 16px;
+}
+
+a {
+  color: $blue;
+}
+
+.main {
+  margin: 0 40px;
+  @include outer-container();
+}
+h1 {
+  font-size: 45px;
+}
+
+.hide {
+  display: none;
+}
+
+.pull-right {
+  display: inline-block;
+  float: right;
+}
+
+#{$all-buttons}, .btn {
+  text-decoration: none;
+  border: 1px solid $blue;
+  padding: 5px 10px;
+  color: $blue;
+  background-color: $lightblue;
+  margin: 5px 0;
+}
+
+#{$all-buttons-hover}, .btn:hover {
+  background-color: darken($lightblue, 10%);
+  color: darken($blue, 10%);
+  border-color: darken($blue, 10%);
+}
+
+table {
+  width: 100%;
+  margin: 10px 0;
+  font-weight: bold;
+  tr {
+    td {
+      line-height: 30px;
+      padding: 10px;
+    }
+    background-color: white;
+    &:nth-child(odd) {
+      background-color: $lightblue;
+    }
+  }
+}
+
+
+#{$all-text-inputs} {
+  border: 1px solid $blue;
+  display: block;
+  margin: 5px 0;
+  padding: 10px 0 5px 5px;
+  width: 100%;
+}
+
+textarea {
+  height: 300px;
+}
+
+select {
+  border: 1px solid $blue;
+  padding: 5px;
+  margin: 5px 0;
+  background-color: white;
+  -webkit-appearance: none;
+  border-radius: 0;
+}

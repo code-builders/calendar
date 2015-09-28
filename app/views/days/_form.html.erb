@@ -1,0 +1,14 @@
+<%= form_for @day do |f| %>
+  <% if @day.new_record? %>
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.text_field :date, class: "date-picker" %>
+    </div>
+  <% end %>
+  <div class='form-group'>
+    <%= f.label :body, "Markdown" %>
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

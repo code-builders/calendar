@@ -1,0 +1,53 @@
+<% if @day %>
+  <article class='day'>
+    <div class='body'>
+      <%= link_to "Edit", edit_day_path(@day), class: "pull-right" %>
+      <h1>
+        <%= @day.date.strftime("%B") %>
+        <%= @day.date.day.ordinalize %>, <%= @day.date.year %>
+      </h1>
+      <div>
+        <%= markdown @day.body %>
+      </div>
+      <div class='schedule'>
+        <h2 class='title'>
+          Schedule
+          <%= link_to "+", "#", class: "show pull-right", data: {target: ".new-schedule"} %>
+        </h2>
+        <table>
+          <% @day.activities.each do |act| %>
+            <tr>
+              <td width="120px"><%= act.start.strftime("%l:%M %p") %></td>
+              <td width="120px"><%= act.end.strftime("%l:%M %p") %></td>
+              <td><%= link_to act.body, act.url %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </article>
+  <div class='new-schedule hide'>
+    <%= form_for [@day, Activity.new] do |f| %>
+      <%= f.hidden_field :day_id, value: @day.id %>
+      <div class='form-group'>
+        <%= f.time_select :start, minute_step: 5, ampm: true %>
+        <%= f.label :end, "-" %>
+        <%= f.time_select :end, minute_step: 5, ampm: true %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </div>
+
+      <%= f.submit %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="alert alert-notice">
+    There is not a schedule for this day yet...
+  </div>
+<% end %>

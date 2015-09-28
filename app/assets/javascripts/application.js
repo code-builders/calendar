@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require plugins/moment.min
+//= require plugins/pikaday
 //= require_tree .
