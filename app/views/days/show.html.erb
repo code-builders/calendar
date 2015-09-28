@@ -19,7 +19,7 @@
             <tr>
               <td width="120px"><%= act.start.strftime("%l:%M %p") %></td>
               <td width="120px"><%= act.end.strftime("%l:%M %p") %></td>
-              <td><%= link_to act.body, act.url %></td>
+              <td><%= link_to_if act.url.present?, act.body, act.url %></td>
             </tr>
           <% end %>
         </table>
