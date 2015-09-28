@@ -1,6 +1,7 @@
 $blue: rgb(72, 170, 157);
 $lightblue: rgb(214, 239, 241);
-
+$red: rgb(255, 161, 169);
+$green: rgb(114, 233, 137);
 body {
   border-top: 5px solid $lightblue;
   font-family: "Futura";
@@ -27,6 +28,18 @@ h1 {
   display: none;
 }
 
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.required-learning {
+  background-color: rgba($green, 0.5);
+  padding: 1px 5px;
+  font-weight: bold;
+}
 .pull-left {
   display: inline-block;
   float: left;

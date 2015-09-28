@@ -3,8 +3,8 @@
   <table>
     <% @days.each do |day| %>
       <tr class="<%= date_class day.date %>">
-        <td><%= link_to date_to_s(day.date), day %></td>
-        <td><small><%= link_to day.body, day %></small></td>
+        <td width="160"><%= link_to date_to_s(day.date), day %></td>
+        <td class='truncate'><small><%= link_to day.body, day %></small></td>
       </tr>
     <% end %>
   </table>
