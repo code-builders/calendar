@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem "redcarpet"
 gem "pygments.rb"
+gem 'paper_trail', '~> 4.0.0'
+gem "rails_12factor"
 
 group :development, :test do
   gem 'byebug'

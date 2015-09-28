@@ -2,6 +2,7 @@ $blue: rgb(72, 170, 157);
 $lightblue: rgb(214, 239, 241);
 
 body {
+  border-top: 5px solid $lightblue;
   font-family: "Futura";
   font-size: 16px;
 }

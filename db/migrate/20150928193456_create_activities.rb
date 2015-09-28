@@ -9,5 +9,6 @@ class CreateActivities < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :activities, :day_id
   end
 end
