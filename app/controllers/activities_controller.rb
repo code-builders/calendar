@@ -9,6 +9,12 @@ class ActivitiesController < ApplicationController
       render "/days/show"
     end
   end
+
+  def destroy
+    @activity = @day.activities.find(params[:id])
+    @activity.destroy
+    redirect_to @day
+  end
   private
 
   def find_day

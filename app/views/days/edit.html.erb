@@ -1,2 +1,21 @@
 <h1>Edit Day</h1>
 <%= render "form" %>
+
+<div class='schedule'>
+  <h2 class='title'>
+    Schedule
+    <%= link_to "+", "#", class: "show pull-right", data: {target: ".new-schedule"} %>
+  </h2>
+  <table>
+    <% @day.activities.each do |act| %>
+      <tr>
+        <td width="120px"><%= act.start.strftime("%l:%M %p") %></td>
+        <td width="120px"><%= act.end.strftime("%l:%M %p") %></td>
+        <td><%= link_to_if act.url.present?, act.body, act.url %></td>
+        <td>
+          <%= button_to "delete", day_activity_path(@day, act), method: :delete, data: {confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "days#today"
   resources :days, path: "/" do
-    resources :activities, only: [:create, :update]
+    resources :activities, only: [:create, :update, :destroy]
   end
 end
