@@ -5,10 +5,14 @@ body {
   border-top: 5px solid $lightblue;
   font-family: "Futura";
   font-size: 16px;
+  padding-top: 10px;
 }
 
 a {
   color: $blue;
+  &:hover {
+    color: darken($blue, 10%);
+  }
 }
 
 .main {
@@ -23,9 +27,20 @@ h1 {
   display: none;
 }
 
+.pull-left {
+  display: inline-block;
+  float: left;
+}
+
 .pull-right {
   display: inline-block;
   float: right;
+}
+
+.pull-center {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
 
 #{$all-buttons}, .btn {
@@ -47,14 +62,23 @@ table {
   width: 100%;
   margin: 10px 0;
   font-weight: bold;
+  small {
+    font-weight: normal;
+  }
   tr {
     td {
       line-height: 30px;
       padding: 10px;
     }
     background-color: white;
+    &:hover {
+      background-color: darken(white, 5%);
+    }
     &:nth-child(odd) {
       background-color: $lightblue;
+      &:hover {
+        background-color: darken($lightblue, 5%);
+      }
     }
   }
 }

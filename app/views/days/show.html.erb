@@ -1,10 +1,14 @@
-<% if @day %>
+<div class='controls'>
+  <%= link_to "<i class='fa fa-arrow-left'></i> Yesterday".html_safe, day_path(@day.yesterday), class: "pull-left" %>
+  <%= link_to "Tomorrow <i class='fa fa-arrow-right'></i>".html_safe, day_path(@day.tomorrow), class: "pull-right" %>
+  <%= link_to "<i class='fa fa-calendar'></i>".html_safe, all_days_path, class: "pull-center" %>
+</div>
+<% if @day.persisted? %>
   <article class='day'>
     <div class='body'>
-      <%= link_to "Edit", edit_day_path(@day), class: "pull-right" %>
+      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_day_path(@day), class: "pull-right" %>
       <h1>
-        <%= @day.date.strftime("%B") %>
-        <%= @day.date.day.ordinalize %>, <%= @day.date.year %>
+        <%= date_to_s @day.date %>
       </h1>
       <div>
         <%= markdown @day.body %>
@@ -12,7 +16,7 @@
       <div class='schedule'>
         <h2 class='title'>
           Schedule
-          <%= link_to "+", "#", class: "show pull-right", data: {target: ".new-schedule"} %>
+          <%= link_to "<i class='fa fa-plus'></i>".html_safe, "#", class: "show pull-right", data: {target: ".new-schedule"} %>
         </h2>
         <table>
           <% @day.activities.each do |act| %>

@@ -1,4 +1,8 @@
-<h1>Edit Day</h1>
+<h1>
+  Edit
+  <%= @day.date.strftime("%B") %>
+  <%= @day.date.day.ordinalize %>, <%= @day.date.year %>
+</h1>
 <%= render "form" %>
 
 <div class='schedule'>

@@ -1,3 +1,21 @@
+.days {
+  tr.past {
+    background-color: #ebebeb;
+    &:hover {
+      background-color: darken(#ebebeb, 5%);
+    }
+    a {color: gray;}
+    &:nth-child(even) {
+      background-color: #f3f3f3;
+      &:hover {
+        background-color: darken(#f3f3f3, 5%);
+      }
+    }
+  }
+  tr.today {
+    outline: 3px solid gold;
+  }
+}
 .day {
   .body {
   }

@@ -1,6 +1,11 @@
 class DaysController < ApplicationController
   before_action :find_day, only: [:show, :edit, :update]
+  def index
+    @days = Day.order("date asc")
+  end
+
   def show
+    @day ||= Day.new(date: @date)
   end
 
   def today
@@ -36,7 +41,7 @@ class DaysController < ApplicationController
   private
 
   def find_day
-    date = Date.parse(params[:id].remove("-"))
-    @day = Day.find_by(date: date)
+    @date = Date.parse(params[:id].remove("-"))
+    @day = Day.find_by(date: @date)
   end
 end
