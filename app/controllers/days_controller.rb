@@ -9,7 +9,7 @@ class DaysController < ApplicationController
   end
 
   def today
-    @day = Day.find_by(date: Date.today)
+    @day = Day.find_or_initialize_by(date: Date.today)
     render :show
   end
 
