@@ -31,24 +31,7 @@
     </div>
   </article>
   <div class='new-schedule hide'>
-    <%= form_for [@day, Activity.new] do |f| %>
-      <%= f.hidden_field :day_id, value: @day.id %>
-      <div class='form-group'>
-        <%= f.time_select :start, minute_step: 5, ampm: true, start_hour: 8, end_hour: 22 %>
-        <%= f.label :end, "-" %>
-        <%= f.time_select :end, minute_step: 5, ampm: true, start_hour: 8, end_hour: 22 %>
-      </div>
-      <div class='form-group'>
-        <%= f.label :body %>
-        <%= f.text_field :body %>
-      </div>
-      <div class='form-group'>
-        <%= f.label :url %>
-        <%= f.text_field :url %>
-      </div>
-
-      <%= f.submit %>
-    <% end %>
+    <%= render "activities/form", day: @day, activity: Activity.new %>
   </div>
 <% else %>
   <div class="alert alert-notice">

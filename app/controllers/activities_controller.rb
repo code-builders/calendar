@@ -10,6 +10,15 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def update
+    @activity = @day.activities.find(params[:id])
+    if @activity.update(params.require(:activity).permit!)
+      redirect_to edit_day_path(@day)
+    else
+      render "days/edit"
+    end
+  end
+
   def destroy
     @activity = @day.activities.find(params[:id])
     @activity.destroy
