@@ -1,4 +1,6 @@
 <section class='days'>
+  <%= link_to "View all required learning", required_learning_path, class: "pull-right btn" %>
+  <%= link_to "+ Add day", new_day_path, class: "pull-right btn" %>
   <h1>Schedule</h1>
     <% @days.each do |day| %>
       <article class="day-preview <%= date_class day.date %>">
@@ -16,5 +18,5 @@
         </div>
       </article>
     <% end %>
-  <%= link_to "+ Add day", new_day_path, class: "btn" %>
+  <hr/>
 </section>

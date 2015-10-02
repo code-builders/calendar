@@ -13,6 +13,11 @@
     <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
-
+  <div class='form-group'>
+    <%= f.label :required_learning do %>
+      <%= f.check_box :required_learning %>
+      Required Learning
+    <% end %>
+  </div>
   <%= f.submit %>
 <% end %>

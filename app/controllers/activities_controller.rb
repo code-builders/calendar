@@ -1,5 +1,9 @@
 class ActivitiesController < ApplicationController
-  before_action :find_day
+  before_action :find_day, except: :index
+
+  def index
+    @activities = Activity.required.includes(:day).order("days.date asc, start")
+  end
 
   def create
     @activity = @day.activities.create(params.require(:activity).permit!)
