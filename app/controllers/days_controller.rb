@@ -14,7 +14,7 @@ class DaysController < ApplicationController
   end
 
   def new
-    @day = Day.new
+    @day = Day.new(params[:day].permit!)
   end
 
   def create

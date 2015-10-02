@@ -32,6 +32,10 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
 }
+.muted {
+  color: #bbb;
+  font-weight: 100;
+}
 
 .required-learning {
   background-color: rgba($green, 0.5);

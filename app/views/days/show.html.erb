@@ -3,13 +3,14 @@
   <%= link_to "Tomorrow <i class='fa fa-arrow-right'></i>".html_safe, day_path(@day.tomorrow), class: "pull-right" %>
   <%= link_to "<i class='fa fa-calendar'></i>".html_safe, all_days_path, class: "pull-center" %>
 </div>
-<% if @day.persisted? %>
-  <article class='day'>
-    <div class='body'>
+<article class='day'>
+  <div class='body'>
+    <h1>
+      <%= date_to_s @day.date %>
+    </h1>
+
+    <% if @day.persisted? %>
       <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_day_path(@day), class: "pull-right" %>
-      <h1>
-        <%= date_to_s @day.date %>
-      </h1>
       <div>
         <%= markdown @day.body %>
       </div>
@@ -28,13 +29,15 @@
           <% end %>
         </table>
       </div>
-    </div>
-  </article>
-  <div class='new-schedule hide'>
-    <%= render "activities/form", day: @day, activity: Activity.new %>
+      <div class='new-schedule hide'>
+        <%= render "activities/form", day: @day, activity: Activity.new %>
+      </div>
+    <% else %>
+      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, new_day_path(day: {date: @day.date}), class: "pull-right" %>
+      <div class="alert alert-notice">
+        <h2 class='muted'>Nothing for this day yet...</h2>
+      </div>
+    <% end %>
+
   </div>
-<% else %>
-  <div class="alert alert-notice">
-    <h1>There is not a schedule for this day yet...</h1>
-  </div>
-<% end %>
+</article>
