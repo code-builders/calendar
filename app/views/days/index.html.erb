@@ -1,12 +1,20 @@
 <section class='days'>
   <h1>Schedule</h1>
-  <table>
     <% @days.each do |day| %>
-      <tr class="<%= date_class day.date %>">
-        <td width="260"><%= link_to date_to_s(day.date), day %></td>
-        <td><small><%= link_to(day.body, day) %></small></td>
-      </tr>
+      <article class="day-preview <%= date_class day.date %>">
+        <div class='small-date'><%= link_to date_to_s(day.date), day %></div>
+        <div class='summary'>
+          <table>
+            <% day.activities.by_start.each do |act| %>
+              <tr>
+                <td width="120px"><%= act.start.strftime("%l:%M %p") %></td>
+                <td width="120px"><%= act.end.strftime("%l:%M %p") %></td>
+                <td><%= link_to_if act.url.present?, act.body, act.url %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </article>
     <% end %>
-  </table>
   <%= link_to "+ Add day", new_day_path, class: "btn" %>
 </section>

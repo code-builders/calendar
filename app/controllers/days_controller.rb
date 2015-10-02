@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
   before_action :find_day, only: [:show, :edit, :update]
   def index
-    @days = Day.order("date asc")
+    @days = Day.order("date asc").includes(:activities)
   end
 
   def show
@@ -14,7 +14,7 @@ class DaysController < ApplicationController
   end
 
   def new
-    @day = Day.new(params[:day].permit!)
+    @day = Day.new(date: params[:date])
   end
 
   def create

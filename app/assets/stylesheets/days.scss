@@ -1,10 +1,11 @@
 .days {
-  tr.past {
+  .day-preview.past {
     background-color: #ebebeb;
     &:hover {
       background-color: darken(#ebebeb, 5%);
     }
     a {color: gray;}
+    tr {background-color: transparent;}
     &:nth-child(even) {
       background-color: #f3f3f3;
       &:hover {
@@ -12,8 +13,27 @@
       }
     }
   }
-  tr.today {
+  .day-preview.today {
     outline: 3px solid gold;
+  }
+  .day-preview {
+    @include clearfix;
+    &:nth-child(even) {
+      background-color: lighten($lightblue, 9%);
+    }
+    table {
+      margin: 0;
+      font-size: 80%;
+      td { padding: 5px; }
+    }
+    .small-date {
+      padding: 20px;
+      @include span-columns(3);
+    }
+    .summary {
+      @include span-columns(9);
+      @include omega();
+    }
   }
 }
 .day {

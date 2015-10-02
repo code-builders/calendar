@@ -33,7 +33,7 @@
         <%= render "activities/form", day: @day, activity: Activity.new %>
       </div>
     <% else %>
-      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, new_day_path(day: {date: @day.date}), class: "pull-right" %>
+      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, new_day_path(date: @day.date), class: "pull-right" %>
       <div class="alert alert-notice">
         <h2 class='muted'>Nothing for this day yet...</h2>
       </div>
