@@ -41,7 +41,8 @@ h1 {
 }
 
 .required-learning {
-  background-color: rgba($green, 0.5);
+  background-color: rgba($green, 0.5) !important;
+  &:hover { background-color: $green !important; }
   padding: 1px 5px;
   font-weight: bold;
 }

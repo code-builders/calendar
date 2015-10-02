@@ -4,7 +4,7 @@
     <li>
       <input type='checkbox' />
       <%= link_to_if act.url.present?,  act.body, act.url %>
-      <small class='muted'> | <%= link_to date_to_s(act.day.date), act.day %>
+      <small class='muted'> | <%= link_to date_to_s(act.day.date), act.day %></small>
     </li>
   <% end %>
 </ul>
