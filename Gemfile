@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "2.2.2"
-
+gem 'puma'
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +12,7 @@ gem "redcarpet"
 gem "pygments.rb"
 gem 'paper_trail', '~> 4.0.0'
 gem "rails_12factor"
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug'
