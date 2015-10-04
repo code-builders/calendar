@@ -1,9 +1,9 @@
 <%= form_for [day, activity] do |f| %>
   <%= f.hidden_field :day_id, value: day.id %>
   <div class='form-group'>
-    <%= f.time_select :start, minute_step: 5, ampm: true, start_hour: 8, end_hour: 22 %>
+    <%= f.datetime_select :start, minute_step: 5, ampm: true, start_hour: 8, end_hour: 22 %>
     <%= f.label :end, "-" %>
-    <%= f.time_select :end, minute_step: 5, ampm: true, start_hour: 8, end_hour: 22 %>
+    <%= f.datetime_select :end, minute_step: 5, ampm: true, start_hour: 8, end_hour: 22 %>
   </div>
   <div class='form-group'>
     <%= f.label :body %>

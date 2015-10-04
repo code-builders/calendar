@@ -20,7 +20,7 @@
           <%= link_to "<i class='fa fa-plus'></i>".html_safe, "#", class: "show pull-right", data: {target: ".new-schedule"} %>
         </h2>
         <table>
-          <% @day.activities.by_start.each do |act| %>
+          <% @day.activities.each do |act| %>
             <tr class='<%= "required-learning" if act.required_learning? %>'>
               <td width="120px"><%= act.start.strftime("%l:%M %p") %></td>
               <td width="120px"><%= act.end.strftime("%l:%M %p") %></td>
@@ -30,7 +30,7 @@
         </table>
       </div>
       <div class='new-schedule hide'>
-        <%= render "activities/form", day: @day, activity: Activity.new %>
+        <%= render "activities/form", day: @day, activity: Activity.new(start: @day.date, end: @day.date) %>
       </div>
     <% else %>
       <%= link_to "<i class='fa fa-pencil'></i>".html_safe, new_day_path(date: @day.date), class: "pull-right" %>
