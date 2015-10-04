@@ -5,8 +5,9 @@
 </div>
 <article class='day'>
   <div class='body'>
-    <h1>
+    <h1 class='muted'>
       <%= date_to_s @day.date %>
+      <small style='font-size: 28px;' class='muted'></small>
     </h1>
 
     <% if @day.persisted? %>

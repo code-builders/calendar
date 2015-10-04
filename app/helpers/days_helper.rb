@@ -1,6 +1,6 @@
 module DaysHelper
   def date_to_s(date)
-    "#{date.strftime('%B')} #{date.day.ordinalize}, #{date.year}"
+    "#{date.strftime('%A %B')} #{date.day.ordinalize}, #{date.year}"
   end
 
   def date_class(day)
