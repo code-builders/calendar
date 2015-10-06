@@ -15,5 +15,6 @@
   <% @day.activities.by_start.each do |act| %>
     <%= render "activities/form", day: @day, activity: act %>
     <%= link_to "<i class='fa fa-trash'></i>".html_safe, [@day, act], method: :delete, data: {confirm: "Are you sure?" } %>
+    <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_day_activity_path(@day, act) %>
   <% end %>
 </div>

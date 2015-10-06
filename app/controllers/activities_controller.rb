@@ -14,6 +14,9 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @activity = Activity.find params[:id]
+  end
   def update
     @activity = @day.activities.find(params[:id])
     if @activity.update(params.require(:activity).permit!)
