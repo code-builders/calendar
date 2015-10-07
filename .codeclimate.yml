@@ -2,4 +2,4 @@ languages:
   Ruby: true
   JavaScript: true
 exclude_paths:
-- "app/assets/javascripts/plugins/pikaday.js"
+# - "app/assets/javascripts/plugins/pikaday.js"
